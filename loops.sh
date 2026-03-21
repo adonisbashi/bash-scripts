@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DATE=$(date +%Y-%m-%d)
+
 echo "=== Pizza Menu ==="
 for PIZZA in BBQ Veggie Supreme "Buffalo Chicken" "Meat Lovers" "Chicken Bacon Ranch" "Hot Honey Ricotta"; do
     echo "- $PIZZA"
@@ -8,7 +10,7 @@ done
 echo ""
 echo "=== Last 5 backups ==="
 for i in {1..5}; do
-    echo "Backup $i: backup_2026--03-$(printf '%02d' $i).tar.gz"
+    echo "Backup $i: $DATE $i.tar.gz"
 done
 
 echo ""
