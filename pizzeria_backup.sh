@@ -4,6 +4,7 @@ SRC_DIR="/tmp/backups"
 DEST_DIR="/tmp/updated_menu"
 DATE=$(date +%Y-%m-%d)
 TAR_BACKUP="$DEST_DIR/backup_$DATE.tar.gz"
+DAYS_OLD="+7"
 
 
 if [[ ! -d "$DEST_DIR" ]]; then
@@ -23,4 +24,14 @@ if [[ $EXIT_CODE -eq 0 ]]; then
     echo "Backup successful!"
 else
     echo "ERROR: Backup failed!"
+fi
+
+echo "Deleting files older than $DAYS_OLD days in $DEST_DIR"
+find "$DEST_DIR" -type f -mtime "$DAYS_OLD" -delete
+EXIT_CODE=$?
+
+if [[ $EXIT_CODE -eq 0 ]]; then
+    echo "Files older than 7 days have been deleted!"
+else
+    echo "There are no files older than 7 days to delete."
 fi
