@@ -2,8 +2,9 @@
 
 SRC_DIR="/tmp/backups"
 DEST_DIR="/tmp/updated_menu"
-TAR_BACKUP="$DEST_DIR/backup_$DATE.tar.gz"
 DATE=$(date +%Y-%m-%d)
+TAR_BACKUP="$DEST_DIR/backup_$DATE.tar.gz"
+
 
 if [[ ! -d "$DEST_DIR" ]]; then
     mkdir -p "/tmp/$DEST_DIR"
