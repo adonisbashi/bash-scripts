@@ -2,7 +2,7 @@
 
 SRC_DIR="/tmp/backups"
 DEST_DIR="/tmp/updated_menu"
-TAR_BACKUP="archive.tar.gz"
+TAR_BACKUP="$DEST_DIR/backup_$DATE.tar.gz"
 DATE=$(date +%Y-%m-%d)
 
 if [[ ! -d "$DEST_DIR" ]]; then
