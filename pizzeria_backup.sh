@@ -7,15 +7,20 @@ TAR_BACKUP="$DEST_DIR/backup_$DATE.tar.gz"
 
 
 if [[ ! -d "$DEST_DIR" ]]; then
-    mkdir -p "/tmp/$DEST_DIR"
+    mkdir -p "$DEST_DIR"
     echo "New backup directory created named: $DEST_DIR"
 else
     echo "Backup directory already exists named $DEST_DIR"
 fi
 
-if [[ -d "$SRC_DIR" ]]; then
-    tar -czvf "$TAR_BACKUP" "$SRC_DIR"
-    echo "Created archive: $TAR_BACKUP"
+tar -czvf "$BACKUP_FILE" "$SRC_DIR"
+EXIT_CODE=$?
+
+echo "Backup finished at $(date)"
+echo "Files backed up: $(ls $DEST_DIR | wc -l)"
+
+if [[ $EXIT_CODE -eq 0 ]]; then
+    echo "Backup successful!"
 else
-    echo "Error: directory '$SRC_DIR' not found!"
+    echo "ERROR: Backup failed!"
 fi
