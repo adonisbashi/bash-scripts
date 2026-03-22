@@ -13,7 +13,7 @@ else
     echo "Backup directory already exists named $DEST_DIR"
 fi
 
-tar -czvf "$BACKUP_FILE" "$SRC_DIR"
+tar -czvf "$TAR_BACKUP" "$SRC_DIR"
 EXIT_CODE=$?
 
 echo "Backup finished at $(date)"
