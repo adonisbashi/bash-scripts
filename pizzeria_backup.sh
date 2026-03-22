@@ -27,12 +27,12 @@ else
 fi
 
 echo "Deleting files older than $DAYS_OLD days in $DEST_DIR"
-FILE_FINDER=$(find $DEST_DIR -type f -mtime $DAYS_OLD)
+FILE_FINDER=$(find "$DEST_DIR" -type f -mtime "$DAYS_OLD")
 
 
 if [[ -z "$FILE_FINDER" ]]; then
     echo "There are no files older than 7 days to delete."
 else
-    find $DEST_DIR -type f -mtime $DAYS_OLD -delete
+    find "$DEST_DIR" -type f -mtime "$DAYS_OLD" -delete
     echo "Files older than 7 days have been deleted!"
 fi
