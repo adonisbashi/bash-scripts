@@ -1,10 +1,11 @@
 #!/bin/bash 
 
 SRC_DIR="/tmp/backups"
-DEST_DIR="/tmp/updated_menu_backups"
+DEST_DIR_CHECK=$( ls /tmp | grep $DEST_DIR)
+DEST_DIR="updated_menu"
 DATE=$(date +%Y-%m-%d)
 
-if [ -d "$DEST_DIR" ]; then
+if [ $DEST_DIR_CHECK = "" ]; then
     mkdir -p $DEST_DIR
     echo "New backup directory created named: $DEST_DIR"
 else
