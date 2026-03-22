@@ -6,7 +6,7 @@ DATE=$(date +%Y-%m-%d)
 
 if [[ ! -d "$DEST_DIR" ]]; then
     mkdir -p "/tmp/$DEST_DIR"
-    echo "New backup directory created named: /tmp/$DEST_DIR"
+    echo "New backup directory created named: $DEST_DIR"
 else
-    echo "Backup directory already exists named /tmp/$DEST_DIR"
+    echo "Backup directory already exists named $DEST_DIR"
 fi
